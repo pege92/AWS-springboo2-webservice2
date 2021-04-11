@@ -2,6 +2,7 @@ package com.sungmin.practice1.springboot.service;
 
 import com.sungmin.practice1.springboot.domain.posts.Posts;
 import com.sungmin.practice1.springboot.domain.posts.PostsRepository;
+import com.sungmin.practice1.springboot.web.dto.PostsListResponseDto;
 import com.sungmin.practice1.springboot.web.dto.PostsResponseDto;
 import com.sungmin.practice1.springboot.web.dto.PostsSaveRequestDto;
 import com.sungmin.practice1.springboot.web.dto.PostsUpdateRequestDto;
@@ -36,6 +37,18 @@ public class PostsService {
         Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("No user. id="+id));
         return new PostsResponseDto(entity);
 
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
+
+    }
+
+    @Transactional
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+        postsRepository.delete(posts);
     }
 
 }
