@@ -26,10 +26,10 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void 테이블저장_불러오기(){
+    public void table_loading(){
         //given
-        String title = "테스트게시글";
-        String content = "테스트본문";
+        String title = "test content";
+        String content = "test text";
 
         postsRepository.save(Posts.builder().title(title).content(content).author("pege92@gmail.com").build()); //테이블 posts에 insert / update 쿼리를 실행 id값이 있다면 update가 없으면 insert가 실행
 
@@ -43,7 +43,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void BaseTimeEntity_등록(){
+    public void BaseTimeEntity_add(){
         //given
         LocalDateTime now = LocalDateTime.of(2019, 6, 4, 0, 0, 0);
         postsRepository.save(Posts.builder()

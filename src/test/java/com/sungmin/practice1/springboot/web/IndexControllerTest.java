@@ -17,12 +17,12 @@ public class IndexControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void 메인페이지_로딩() {
+    public void mainpage_loading() {
         //when
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("스프링부트로 시작하는 웹 서비스");
+        assertThat(body).contains("Spring Boot webservice");
     }
 
 }
