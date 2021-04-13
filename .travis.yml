@@ -25,6 +25,9 @@ deploy:
     bucket: sungmin-springboot-build # S3 버킷
     region: ap-northeast-2
     skip_cleanup: true
+    acl : private
+    local_dir: deploy
+    wait-until-deployed: true
     
 # CI 실행 완료시 메일로 알람
 notifications:
