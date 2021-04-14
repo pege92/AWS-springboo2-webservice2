@@ -1,9 +1,9 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2/zip
+REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=AWS-springboo2-webservice2
 
-cd $REPOSITORY/$PROJECT_NAME
+cp $REPOSITORY/zip/*.jar $REPOSITORY
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 CURRENT_PID=$(pgrep -fl AWS-springboo2-webservice2 | grep java | awk '{print $1}')
