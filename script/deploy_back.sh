@@ -1,9 +1,19 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
+REPOSITORY=/home/ec2-user/my_spring_boot
 PROJECT_NAME=AWS-springboo2-webservice2
 
 cd $REPOSITORY/$PROJECT_NAME
+
+echo "> Git pull"
+
+git pull
+
+echo ">프로젝트 Build 시작"
+./gradlew build
+
+echo ">Build 파일복사"
+cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 CURRENT_PID=$(pgrep -fl AWS-springboo2-webservice2 | grep java | awk '{print $1}')
