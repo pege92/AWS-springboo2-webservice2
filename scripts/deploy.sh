@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
+REPOSITORY=/home/ec2-user/app/step2/zip
 PROJECT_NAME=AWS-springboo2-webservice2
 
 cd $REPOSITORY/$PROJECT_NAME
